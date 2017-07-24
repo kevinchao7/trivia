@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- This site uses MUI CSS -->
+    <link href="https://cdn.muicss.com/mui-0.9.20/css/mui.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.muicss.com/mui-0.9.20/js/mui.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+    <title>Netflix and HBO Trivia</title>
+  </head>
+  <body>
+    <div class="mui-container">
+      <div class="mui-container">
+        <h1>Netflix and HBO Trivia</h1>
+        <div class="question mui-panel">
+          <span id="question"></span>
+          <span id="timer">Countdown Timer: 30 Seconds left.</span>
+        </div>
+        <div id='answers' class="answers mui-panel">
+          <button id="answer1" value='1' class="answerBtn mui-btn "><span id="ans1">answer</span></button>
+          <button id="answer2" value='2' class="answerBtn mui-btn "><span id="ans2"></span></button>
+          <button id="answer3" value='3' class="answerBtn mui-btn "><span id="ans3"></span></button>
+          <button id="answer4" value='4' class="answerBtn mui-btn "><span id="ans4"></span></button>
+        </div>
+        <div id="result" class="result mui-panel">
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="javascript.js" type="text/javascript"></script>
+
+</html>

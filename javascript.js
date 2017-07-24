@@ -71,12 +71,12 @@ $(document).ready(function() {
     result.append(resultPTag);
     result.show();
 
-    // Increment to next slide
+    // Increment to next slide in "x" seconds
     timer = 30;
     index++;
     setTimeout(function(){
       loadQuestion();
-    },3000);
+    },4000);
 
     // Checks to see if game is over
     if(index > questionArr.length-1){

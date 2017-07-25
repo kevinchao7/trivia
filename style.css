@@ -53,6 +53,13 @@ img{
   }
 }
 
+@media(min-height: 1200px){
+  body, html{
+    height:100%;
+  }
+}
+
+
 button{
   width:100%;
 }

@@ -92,6 +92,7 @@ $(document).ready(function() {
 
   // Game over function
   var showGameOver = function(){
+    clearInterval(intervalID);
     question.text('Thank you for taking the trivia!');
     answer1.text('Click here to take the quiz again.');
     result.text('Correct Answers: ' + wins + ', Incorrect Answers: ' + losses);

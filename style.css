@@ -1,60 +1,60 @@
-.mui-container{
-  width:75%;
+.container{
   text-align:center;
 }
-li {
-  list-style-position: inside;
+.mui-panel{
+  text-align:center;
+  overflow:inherit;
+  background-color:rgba(255,255,255,0.70);
 }
 .answers{
   text-align:center;
 }
-
 body, html{
   min-width:500px;
+  background:url('http://authors.appadvice.com/wp-content/appadvice-v2-media/2016/11/Netflix-background_860c8ece6b34fb4f43af02255ca8f225.jpg');
 }
 .answerBtn{
   text-transform: inherit;
   display:block;
-  margin-left:10px !important;
 }
 .question{
   margin-bottom:25px;
   font-size:18px;
 }
 #question{
-  margin-left:35px !important;
   font-weight: bold;
 }
 h1{
+  color:white;
   text-align: center;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 #timer{
   display:block;
-  margin-left:35px !important;
   margin-top:10px;
   font-size: 12px;
 }
 img{
   max-height:200px;
 }
+.logo {
+  height:100px;
+}
 .result{
   text-align:center;
 }
 
-@media (max-width: 700px) {
-  .mui-container{
+@media (max-width: 650px) {
+  .mui-container, .answers{
     width:100%;
-  }
-  .answers{
-    width:400px;
-    margin:auto;
   }
 }
-@media (max-width: 450px) {
-  .mui-container{
-    width:100%;
-  }
-  .answers{
-    width:100%;
-  }
+
+button{
+  width:100%;
+}
+
+.mui-btn+.mui-btn{
+  margin-left:auto;
+  /*fixes problem with left button not aligned with first button*/
 }

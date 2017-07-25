@@ -47,6 +47,9 @@ $(document).ready(function() {
       answer3.text("C. " + answerArr[index][2]);
       answer4.text("D. " + answerArr[index][3]);
     }
+    else{
+      showGameOver();
+    }
   }
   loadQuestion();
 
@@ -87,6 +90,31 @@ $(document).ready(function() {
     $("html, body").animate({ scrollTop: $(document).height() }, "slow");
   }
 
+  // Game over function
+  var showGameOver = function(){
+    question.text('Thank you for taking the trivia!');
+    answer1.text('Click here to take the quiz again.');
+    result.text('Correct Answers: ' + wins + ', Incorrect Answers: ' + losses);
+    $('#answer2').hide();
+    $('#answer3').hide();
+    $('#answer4').hide();
+    $('#timer').hide();
+  }
+
+  var resetGame = function(){
+    wins = 0;
+    losses = 0;
+    timer = 30;
+    gameOver = false;
+    index = 0;
+    isBtnPressed = false;
+    loadQuestion();
+    $('#answer2').show();
+    $('#answer3').show();
+    $('#answer4').show();
+    $('#timer').show();
+  }
+
   // Timer function
   var countDown = function(){
     if (timer > 0){
@@ -117,6 +145,11 @@ $(document).ready(function() {
   var btnTrigger = function(btn){
     if(!isBtnPressed){
       isBtnPressed = true;
+
+      setTimeout(function(){
+        btn.blur(); // btn.blur() removes the button depressed styling so that you won't see it when the trivia switches to the next question.
+      },4000);
+
       clearInterval(intervalID);
       if (btn.attr('value')-1 === ansIndex[index]){
         // Correct answer
@@ -128,6 +161,10 @@ $(document).ready(function() {
         losses++;
         displayRes(false);
       }
+    }
+    else if(gameOver){
+      resetGame();
+      btn.blur(); // removes depressed button styling.
     }
   }
 

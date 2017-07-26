@@ -53,6 +53,12 @@ img{
   }
 }
 
+@media (min-height: 1200px){
+  .mui-row{
+    height:2000px;
+  }
+}
+
 button{
   width:100%;
 }

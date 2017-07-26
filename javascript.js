@@ -40,7 +40,7 @@ $(document).ready(function() {
       isBtnPressed = false;
       result.hide(); // hides result element.
 
-
+      // Adds the question and answers
       question.text(questionArr[index]);
       answer1.text("A. " + answerArr[index][0]);
       answer2.text("B. " + answerArr[index][1]);
@@ -48,17 +48,22 @@ $(document).ready(function() {
       answer4.text("D. " + answerArr[index][3]);
     }
     else{
+      // Display Gameover
       showGameOver();
     }
   }
+
+  // Loads intial questions
   loadQuestion();
 
   // Display results
   var displayRes = function(win){
     var resultTag = $('<p>');
+    // Display results for correct answer
     if (win){
       resultTag.text("Congrats! You were Correct!");
     }
+    // Display results for incorrect answer
     else{
       resultTag.text("Sorry! You were incorrect! The correct answer is " + letters[ansIndex[index]] + ".");
     }
@@ -74,9 +79,9 @@ $(document).ready(function() {
     result.append(resultPTag);
     result.show();
 
-    // Increment to next slide in "x" seconds
+    // Increment to next slide in 4 seconds
     timer = 30;
-    index++;
+    index++; // Increments array index selector
     setTimeout(function(){
       loadQuestion();
     },4000);
@@ -90,7 +95,7 @@ $(document).ready(function() {
     $("html, body").animate({ scrollTop: $(document).height() }, "slow");
   }
 
-  // Game over function
+  // Displays Game Over function
   var showGameOver = function(){
     clearInterval(intervalID);
     question.text('Thank you for taking the trivia!');
@@ -102,6 +107,7 @@ $(document).ready(function() {
     $('#timer').hide();
   }
 
+  // Restarts the game
   var resetGame = function(){
     wins = 0;
     losses = 0;
@@ -129,29 +135,24 @@ $(document).ready(function() {
     }
   }
 
-
-  $('#answer1').on('click',function(){
-    btnTrigger($(this));
-  });
-  $('#answer2').on('click',function(){
-    btnTrigger($(this));
-  });
-  $('#answer3').on('click',function(){
-    btnTrigger($(this));
-  });
-  $('#answer4').on('click',function(){
+  // Click function for buttons
+  $('.answerBtn').on('click',function(){
     btnTrigger($(this));
   });
 
+  // Triggers event when button is pressed
   var btnTrigger = function(btn){
     if(!isBtnPressed){
       isBtnPressed = true;
 
+      // Removes active selector on button after 4 seconds.
       setTimeout(function(){
         btn.blur(); // btn.blur() removes the button depressed styling so that you won't see it when the trivia switches to the next question.
       },4000);
 
+      // Stops Timer
       clearInterval(intervalID);
+
       if (btn.attr('value')-1 === ansIndex[index]){
         // Correct answer
         wins++;
